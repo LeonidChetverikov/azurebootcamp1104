@@ -24,7 +24,7 @@
         },
         "tags": {
             "type": "object",
-            "defaultValue": {}
+            "defaultValue": "{}"
         },
         "publicNetworkAccess": {
             "type": "string",
