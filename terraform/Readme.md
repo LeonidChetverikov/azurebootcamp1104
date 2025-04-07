@@ -1,4 +1,4 @@
-### Explanation of Changes
+### Explanation of Usage
 
 #### Random Name Generation
 - The `random_pet` resource generates a unique name for the storage account. 
