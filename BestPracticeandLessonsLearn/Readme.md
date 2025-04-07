@@ -1,6 +1,3 @@
-Below is the transformed text in Markdown format:
-
----
 
 # Best Practices and Lessons Learned for Azure Automation
 
