@@ -23,7 +23,8 @@
             "defaultValue": "2022-02-01-preview"
         },
         "tags": {
-            "type": "object"
+            "type": "object",
+            "defaultValue": {"use": "azurebootcamp"}
         },
         "publicNetworkAccess": {
             "type": "string",
@@ -40,7 +41,7 @@
                 "name": "[parameters('registrySku')]"
             },
             "dependsOn": [],
-            "tags": {"use": "azurebootcamp"},
+            "tags": "[parameters('tags')]",
             "properties": {
                 "publicNetworkAccess": "[parameters('publicNetworkAccess')]",
                 "zoneRedundancy": "[parameters('zoneRedundancy')]"
