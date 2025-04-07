@@ -1,0 +1,109 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "2.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "String",
+            "defaultValue": "azurebootcamp",
+            "metadata": {
+                "description": "Name of the automation account"
+            },
+          
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "String",
+            "defaultValue": "azurebootcamp",
+            "metadata": {
+                "description": "Location for automation account"
+            }
+        },
+        "sampleGraphicalRunbookName": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        },
+        "sampleGraphicalRunbookDescription": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        },
+        "sampleGraphicalRunbookContentUri": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        },
+        "samplePowerShellRunbookName": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        },
+        "samplePowerShellRunbookDescription": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        },
+        "samplePowerShellRunbookContentUri": {
+            "type": "String",
+            "defaultValue": "azurebootcamp"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2021-06-22",
+            "name": "[parameters('accountName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [],
+            "tags": {
+                "use": "vmStart"
+            },
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "sku": {
+                    "name": "Basic"
+                },
+                "publicNetworkAccess": true
+            },
+            "resources": [
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('sampleGraphicalRunbookName')]",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
+                    ],
+                    "tags": {},
+                    "properties": {
+                        "runbookType": "GraphPowerShell",
+                        "logProgress": false,
+                        "logVerbose": false,
+                        "description": "[parameters('sampleGraphicalRunbookDescription')]",
+                        "publishContentLink": {
+                            "uri": "[parameters('sampleGraphicalRunbookContentUri')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                },
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('samplePowerShellRunbookName')]",
+                    "location": "[parameters('location')]",
+                    "dependsOn": [
+                        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
+                    ],
+                    "tags": {},
+                    "properties": {
+                        "runbookType": "PowerShell",
+                        "logProgress": false,
+                        "logVerbose": false,
+                        "description": "[parameters('samplePowerShellRunbookDescription')]",
+                        "publishContentLink": {
+                            "uri": "[parameters('samplePowerShellRunbookContentUri')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
