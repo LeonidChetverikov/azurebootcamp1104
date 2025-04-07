@@ -1,7 +1,7 @@
 
 # Best Practices and Lessons Learned for Azure Automation
 
-Below are two practical examples focusing on Azure automation that incorporate best practices and lessons learned. These examples highlight not only how to automate common tasks—such as starting/stopping virtual machines and managing updates—but also emphasize security, maintainability, and error handling.
+Below are two examples of Azure automation that include best practices. These examples highlight not only how to automate common tasks—such as starting/stopping virtual machines and managing updates—but also an attitude to security, maintainability, and error handling.
 
 ---
 
@@ -38,7 +38,6 @@ Automate the process of starting VMs in the morning and stopping them at night t
     The action to perform on the VM: 'start' or 'stop'.
 .NOTES
     Ensure your Automation Run As account or Managed Identity has sufficient permissions.
-    Created: 2025-04-07
 #>
 
 param(
@@ -85,7 +84,7 @@ catch {
 }
 ```
 
-### Lessons Learned
+### What we Learn
 
 - **Authentication Matters:**  
   Using the Run As account or managed identity avoids interactive login issues.
@@ -138,7 +137,6 @@ Automate the patch management process for a set of Azure VMs by integrating Azur
     A name for this patch deployment job.
 .NOTES
     Ensure your Automation account has access to the Log Analytics workspace.
-    Created: 2025-04-07
 #>
 
 param (
@@ -150,11 +148,8 @@ param (
 )
 
 try {
-    # Example: Trigger the update deployment using a custom REST call or module cmdlet.
-    # (The exact command depends on your configuration and modules available.)
     Write-Output "Triggering update deployment '$DeploymentName' for workspace '$WorkspaceId'..."
     
-    # For illustration purposes only - replace with your actual Update Management command.
     Invoke-AzOperationalInsightsQuery `
         -WorkspaceId $WorkspaceId `
         -Query "AzureActivity | where CategoryValue=='Update'" | Out-Null
@@ -170,7 +165,7 @@ catch {
 }
 ```
 
-### Lessons Learned
+### What we Learn
 
 - **Automation Reduces Manual Intervention:**  
   Automating patch management reduces human error and ensures timely updates.
@@ -181,7 +176,7 @@ catch {
 
 ---
 
-## Summary of Best Practices and Lessons Learned
+## Summary 
 
 - **Non-Interactive Authentication:**  
   Use Run As accounts or managed identities to avoid interactive login issues.
