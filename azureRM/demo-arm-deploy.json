@@ -41,7 +41,9 @@
             },
             "dependsOn": [],
             "tags": {
-                "use ": "azurebootcamp"
+                "value": {
+                    "use ": "azurebootcamp"
+                }
             },
             "properties": {
                 "publicNetworkAccess": "[parameters('publicNetworkAccess')]",
