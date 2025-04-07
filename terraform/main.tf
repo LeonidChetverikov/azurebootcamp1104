@@ -2,10 +2,6 @@ provider "azurerm" {
   features {}
 }
 
-resource "random_pet" "storage_account_name" {
-  length = 3
-}
-
 resource "random_string" "storage_name" {
   length    = 12
   upper     = false
