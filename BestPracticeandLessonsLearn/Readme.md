@@ -1,5 +1,5 @@
 
-# Best Practices and Lessons Learned for Azure Automation
+# Best Practices for Azure Automation
 
 Below are two examples of Azure automation that include best practices. These examples highlight not only how to automate common tasks—such as starting/stopping virtual machines and managing updates—but also an attitude to security, maintainability, and error handling.
 
