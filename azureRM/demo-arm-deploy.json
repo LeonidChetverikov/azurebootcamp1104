@@ -40,7 +40,9 @@
                 "name": "[parameters('registrySku')]"
             },
             "dependsOn": [],
-            "tags": {},
+            "tags": {
+                "use ": "azurebootcamp"
+            },
             "properties": {
                 "publicNetworkAccess": "[parameters('publicNetworkAccess')]",
                 "zoneRedundancy": "[parameters('zoneRedundancy')]"
