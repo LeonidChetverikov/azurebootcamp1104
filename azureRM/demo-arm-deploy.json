@@ -3,25 +3,32 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "registryName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "azurebootcamp"
         },
         "registryLocation": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "West Europe"
         },
         "zoneRedundancy": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "disabled"
         },
         "registrySku": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Standard"
         },
         "registryApiVersion": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "2022-02-01-preview"
         },
         "tags": {
-            "type": "object"
+            "type": "object",
+            "defaultValue": ()
         },
         "publicNetworkAccess": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Enabled"
         }
     },
     "resources": [
