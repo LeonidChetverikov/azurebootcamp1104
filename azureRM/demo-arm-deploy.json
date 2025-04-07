@@ -42,7 +42,7 @@
             "dependsOn": [],
             "tags": {
                 "value": {
-                    "use ": "azurebootcamp"
+                    "use": "azurebootcamp"
                 }
             },
             "properties": {
